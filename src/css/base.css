@@ -1,0 +1,75 @@
+:root {
+  --dark-clr: #081d2c;
+  --second-dark-clr: #112e42;
+  --text-clr: #f1f5f9;
+  --light-text-clr: #c9d9e8;
+  --global-clr: #0fbbff;
+  --btn-clr: #ff499e;
+}
+
+html {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+
+
+}
+
+body {
+  background: var(--dark-clr);
+  color: var(--text-clr);
+  line-height: 1.3;
+
+  /* display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 100vh; */
+
+}
+
+/* Запрет скролла страницы при открытом меню */
+/* body.no-scroll {
+  overflow: hidden;
+} */
+h1 {
+  font-family: "Jost", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: "Jost", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: "Jost", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+a {
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+
+  h1 {
+
+    font-size: 4rem;
+
+  }
+
+  h2 {
+
+    font-size: 3rem;
+
+  }
+
+  h3 {
+
+    font-size: 2.5rem;
+  }
+
+}

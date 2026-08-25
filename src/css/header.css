@@ -1,0 +1,254 @@
+header {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  background: transparent;
+  z-index: 1000;
+  backdrop-filter: blur(65px);
+  -webkit-backdrop-filter: blur(65px);
+  box-shadow: 0 0 10px 0 var(--global-clr);
+  border-radius: 50px;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+.header-container {
+  padding: 5px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+}
+
+/* Стартова анімація при завантаженні сторінки для логотипу та бургера */
+.logo,
+.burger-btn {
+  opacity: 0;
+  animation: slideRight 1s ease-in-out forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+.logo {
+  /* position: relative; */
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-clr, #fff);
+}
+
+.logo span {
+  color: var(--global-clr);
+}
+
+/* --- (Mobile-First) --- */
+
+/* Кнопка Бургера */
+.burger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 5px;
+  z-index: 1010;
+}
+
+.burger-btn span {
+  display: block;
+  width: 35px;
+  height: 4px;
+  background: var(--text-clr);
+  backdrop-filter: blur(65px);
+  -webkit-backdrop-filter: blur(65px);
+  box-shadow: 0 0 10px 0 var(--global-clr);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.burger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Мобільне випадаюче меню */
+.navbar-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2.5rem;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70vw;
+  height: 100vh;
+  background: var(--dark-clr);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px;
+  transition: right 1s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1005;
+}
+
+/* Активація мобільного меню */
+.navbar-list.active {
+  right: 0;
+  /* backdrop-filter: blur(65px); -webkit-backdrop-filter: blur(65px); */
+  box-shadow: 0 0 10px 0 var(--global-clr);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-list-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+/* Ефект плавного затемнення сайту */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.6s ease;
+  z-index: 1000;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- ОНОВЛЕНИЙ ЕФЕКТ STAGGER (Через атрибут animation) --- */
+.navbar-list-item {
+  /* opacity: 0; */
+  /* Спочатку пункти приховані, поки меню закрите */
+}
+
+/* Запускаємо анімацію тільки за наявності класу .active у батьківського елемента */
+.navbar-list.active .navbar-list-item,
+.navbar-list.active .cvbtn {
+  animation: mobileSlideLeft 1s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* Посилання всередині мобільного меню */
+.navbar-link {
+  font-size: 2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-clr);
+  transition: 0.3s;
+}
+
+.navbar-link:hover {
+  color: var(--global-clr);
+}
+
+/* Мобільний вигляд кнопки CV */
+.cvbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: var(--btn-clr, #ff0055);
+  box-shadow: 0 0 10px var(--btn-clr);
+  padding: 14px 28px;
+  border-radius: 5px;
+  /* text-decoration: none; */
+  color: var(--text-clr);
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.navbar-icon {
+  fill: var(--text-clr);
+}
+
+/* !!--- ДЕСКТОПНІ СТИЛІ (від 1200px і вище) --- */
+@media screen and (min-width: 1200px) {
+  .header-container {
+    padding: 5px 20px;
+  }
+
+  .burger-btn {
+    display: none;
+  }
+
+  /* Повертаємо меню в горизонтальний рядок */
+  .navbar-list {
+    position: static;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    gap: 1.5rem;
+    /* Десктопна анімація з файлу animations.css при завантаженні сторінки */
+    /* opacity: 0; animation: slideRight 1.5s ease-in-out forwards; animation-delay: calc(0.2s * var(--i)); */
+    /* opacity: 1; animation: none; */
+  }
+
+  /* СКИДАННЯ: Повністю вимикаємо мобільний stagger-ефект на ПК */
+  .navbar-list .navbar-list-item,
+  .navbar-list .cvbtn {
+    opacity: 0;
+    animation: slideRight 1s ease-in-out forwards;
+    animation-delay: calc(0.4s * var(--i));
+  }
+
+  .navbar-list-items {
+    flex-direction: row;
+  }
+
+  .navbar-link {
+    font-size: 1.3rem;
+    position: relative;
+    padding: 12px 0 12px 0;
+  }
+
+  .navbar-link::after {
+    content: '';
+    position: absolute;
+    background: var(--global-clr);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 2px;
+    transition: 0.3s;
+  }
+
+  .navbar-link:hover::after {
+    width: 100%;
+  }
+
+  .cvbtn {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+
+  .cvbtn:hover {
+    box-shadow: 0 0 5px var(--btn-clr), 0 0 10px var(--btn-clr), 0 0 15px var(--btn-clr);
+  }
+}
