@@ -10,35 +10,30 @@
   color: var(--global-clr);
 }
 
-.card-items {
+.projects-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  /* Відступ між картками */
-  /* margin-top: 50px; */
+
 }
 
-.card-box {
+.projects-card {
   background: var(--dark-clr);
   border: 2px solid var(--global-clr);
   box-shadow: 0 0 15px var(--global-clr);
   border-radius: 12px;
   padding: 15px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
-
   transition: all 0.2s ease;
   width: 100%;
 }
 
-/* ХОВЕР КАРТИНКИ: збільшення та тінь ТІЛЬКИ при наведенні на прев'ю */
-.card-box:hover {
-  /* border-color: #007bff; */
-  /* Підсвічування рамки */
+
+.projects-card:hover {
   transform: scale(1.05);
   /* Збільшення масштабу */
-  /* box-shadow: 0 6px 16px rgba(0, 123, 255, 0.2); */
+
   /* Підсилення тіні */
   box-shadow: 0 0 15px var(--global-clr),
     0 0 10px var(--global-clr),
@@ -46,9 +41,7 @@
 
 }
 
-
-
-.preview-container {
+.projects-image-link {
   display: block;
   /* Робимо посилання блочним */
   /* position: relative; */
@@ -62,47 +55,42 @@
 }
 
 
+.projects-image {
+  width: 100%;
+  transform-origin: 8px 80px;
+  transform: rotate(5deg);
+  transition: transform .3s ease-in-out;
 
-/* НАЛАШТУВАННЯ КОМП'ЮТЕРНОЇ ВЕРСІЇ ДЛЯ IFRAME */
-.preview-frame {
-  /* rotate: 5grad; */
-  width: 1440px;
-  /* width: 100vw; */
-  margin: 0 auto;
-  /* Десктопна ширина */
-  height: 900px;
-  /* Десктопна висота */
-  border: none;
-  pointer-events: none;
-  /* Заборона скролу та кліків всередині */
-
-  /* transform-origin: top left; */
-  /* transform: scale(0.3333); */
-  transform-origin: 24px 0px;
-  transform: scale(0.25)rotate(5deg);
-  /* Стискаємо 1200px до 400px */
-  transition: transform .3s ease-in-out, transform-origin .3s ease-in-out
+  /* , transform-origin .3s ease-in-out; */
 }
 
-.card-box:hover .preview-frame {
-  transform: scale(0.27)rotate(0deg);
-  transform-origin: -6px -6px;
+.projects-card:hover .projects-image {
+  transform: scale(1);
+  /* transform-origin: 0px 0px; */
 }
 
+
+.projects-title {}
+
+.projects-technologies {}
+
+.projects-links {}
+
+.projects-link {}
 
 @media screen and (min-width: 768px) {
-  .card-items {
-    /* flex-direction: row; */
+  .projects-list {
+    flex-direction: row;
   }
 
-  .card-box {
+  .projects-card {
     width: calc((100% - 1 * 30px) / 2);
   }
 }
 
 
 @media screen and (min-width: 1200px) {
-  .card-box {
+  .projects-card {
     width: calc((100% - 2 * 30px) / 3);
   }
 }
