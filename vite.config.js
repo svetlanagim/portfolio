@@ -5,11 +5,8 @@ import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 
-// Шукаємо HTML файли відносно поточної директорії
 const htmlInputs = glob.sync('./src/*.html').reduce((acc, file) => {
-  // Створюємо зрозуміле ім'я для кожної сторінки (наприклад, "main" або "index")
   const name = path.basename(file, '.html');
-  // Шлях робимо відносним до папки 'src', оскільки вона є root для Vite
   acc[name] = path.resolve(file);
   return acc;
 }, {});
@@ -23,7 +20,6 @@ export default defineConfig(({ command }) => {
     css: {
       postcss: {
         plugins: [
-          // Переносимо плагін PostCSS у правильне місце
           SortCss({
             sort: 'mobile-first',
           }),

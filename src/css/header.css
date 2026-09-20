@@ -1,15 +1,20 @@
 header {
   position: fixed;
-  top: 16px;
+  top: 5px;
   left: 16px;
   right: 16px;
-  background: transparent;
+  /* background: transparent; */
   z-index: 1000;
-  backdrop-filter: blur(65px);
-  -webkit-backdrop-filter: blur(65px);
-  box-shadow: 0 0 10px 0 var(--global-clr);
   border-radius: 50px;
-  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  box-shadow: 0 0 10px 0 var(--global-clr);
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
+
+  /* Подстраховка для Safari/сборщиков (аппаратное ускорение) */
+  transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 .header-container {
