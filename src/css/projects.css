@@ -68,7 +68,7 @@
   transform-origin: 8px 80px;
   transform: rotate(5deg);
   transition: transform .3s ease-in-out;
-
+  border-radius: 12px;
   /* , transform-origin .3s ease-in-out; */
 }
 

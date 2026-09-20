@@ -4,6 +4,7 @@ import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import autoprefixer from 'autoprefixer';
 
 const htmlInputs = glob.sync('./src/*.html').reduce((acc, file) => {
   const name = path.basename(file, '.html');
@@ -23,6 +24,7 @@ export default defineConfig(({ command }) => {
           SortCss({
             sort: 'mobile-first',
           }),
+          autoprefixer(),
         ],
       },
     },
