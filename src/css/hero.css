@@ -27,12 +27,9 @@
   /* width: 100%;
   height: auto; */
   object-fit: contain;
-  /* Картинка ніколи не обріжеться і не стиснеться */
-
-
   /* min-width: 300px; */
   filter: drop-shadow(0 0 60px var(--global-clr));
-  opacity: 0;
+  opacity: 0.01;
   animation: zommBounce 2s ease-in-out forwards;
   animation-delay: 0.7s;
   /* object-fit: cover */
@@ -41,7 +38,7 @@
 
 
 .hero-content>* {
-  opacity: 0;
+  opacity: 0.01;
   animation: fadeIn 1s ease-in-out forwards;
   animation-delay: calc(0.2s * var(--i));
 }
