@@ -101,7 +101,39 @@
     0 0 3px var(--global-clr);
 }
 
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.75rem;
+  /* Чуть меньше основного текста */
+  color: var(--light-text-clr);
+  opacity: 0.8;
+  /* Делаем текст менее кричащим */
+}
 
+/* Разделитель между типом проекта и ролью */
+.project-type::after {
+  content: "";
+  display: inline-block;
+
+  width: 6px;
+  height: 6px;
+  margin-left: 10px;
+  background-color: var(--global-clr);
+  border-radius: 50%;
+
+  box-shadow: 0 0 8px var(--global-clr), 0 0 3px var(--global-clr);
+
+  /* vertical-align: middle; */
+}
+
+.project-role {
+  font-weight: 500;
+  /* Можно выделить роль цветом, если хотите сделать на ней акцент: */
+  /* color: var(--global-clr); */
+}
 
 
 
