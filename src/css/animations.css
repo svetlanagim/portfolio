@@ -48,7 +48,7 @@
 
 @keyframes zommBounce {
   0% {
-    opacity: 0;
+    opacity: 0.01;
     transform: scale(0.5) rotate(-40deg);
   }
 
@@ -65,7 +65,7 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(20px);
   }
 
   100% {
@@ -73,6 +73,7 @@
     transform: translateY(0);
   }
 }
+
 
 @keyframes scroll {
   0% {
