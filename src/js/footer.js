@@ -1,11 +1,5 @@
-// document.getElementById('year').textContent = new Date().getFullYear();
+const year = document.querySelector('#year');
 
-export function initFooterYear() {
-  const year = document.getElementById('year');
-
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+if (year) {
+  year.textContent = new Date().getFullYear();
 }
-
-initFooterYear();

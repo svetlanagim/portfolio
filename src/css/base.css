@@ -12,6 +12,8 @@ html {
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
   font-weight: 400;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {

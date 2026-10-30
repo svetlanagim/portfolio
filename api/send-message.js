@@ -1,27 +1,27 @@
 export default async function handler(req, res) {
-  // Принимаем только POST-запросы
+  // Приймаємо тільки POST-запити
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({
       success: false,
-      message: 'Method not allowed',
+      message: 'Метод не дозволений',
     });
   }
 
-  // Секреты доступны только серверу Vercel
+  // Секретні дані доступні лише серверу Vercel
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
   if (!token || !chatId) {
-    console.error('Telegram environment variables are missing');
+    console.error('Відсутні змінні середовища Telegram');
 
     return res.status(500).json({
       success: false,
-      message: 'Server configuration error',
+      message: 'Помилка конфігурації сервера',
     });
   }
 
-  // Проверяем поля формы
+  // Перевіряємо поля форми
   const { name, email, comment } = req.body || {};
 
   if (
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   ) {
     return res.status(400).json({
       success: false,
-      message: 'Invalid form data',
+      message: 'Некоректні дані форми',
     });
   }
 
@@ -48,26 +48,26 @@ export default async function handler(req, res) {
   ) {
     return res.status(400).json({
       success: false,
-      message: 'Please check the form fields',
+      message: 'Перевірте правильність заповнення полів',
     });
   }
 
-  // Простая проверка формата email
+  // Проста перевірка формату електронної пошти
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return res.status(400).json({
       success: false,
-      message: 'Invalid email',
+      message: 'Некоректна адреса електронної пошти',
     });
   }
 
-  // Отправляем обычный текст, чтобы пользовательские
-  // данные не интерпретировались как Markdown
+  // Надсилаємо звичайний текст, щоб дані користувача
+  // не інтерпретувалися як Markdown
   const text = [
-    '🔔 Новая заявка с сайта!',
+    '🔔 Заявка з сайту Портфоліо!',
     '',
-    `👤 Имя: ${cleanName}`,
+    `👤 Ім'я: ${cleanName}`,
     `📧 Email: ${cleanEmail}`,
-    `💬 Сообщение: ${cleanComment || 'Без комментария'}`,
+    `💬 Повідомлення: ${cleanComment || 'Без коментаря'}`,
   ].join('\n');
 
   try {
@@ -89,24 +89,24 @@ export default async function handler(req, res) {
     const result = await telegramResponse.json();
 
     if (!telegramResponse.ok || !result.ok) {
-      console.error('Telegram rejected the message');
+      console.error('Telegram відхилив повідомлення');
 
       return res.status(502).json({
         success: false,
-        message: 'Could not send the message',
+        message: 'Не вдалося надіслати повідомлення',
       });
     }
 
     return res.status(200).json({
       success: true,
-      message: 'Message sent successfully',
+      message: 'Повідомлення успішно надіслано',
     });
   } catch (error) {
-    console.error('Telegram request failed:', error.message);
+    console.error('Помилка запиту до Telegram:', error.message);
 
     return res.status(502).json({
       success: false,
-      message: 'Telegram is temporarily unavailable',
+      message: 'Telegram тимчасово недоступний',
     });
   }
 }
