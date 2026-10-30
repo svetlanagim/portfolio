@@ -1,0 +1,42 @@
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="title"><span>&#8212;</span> Contact <span>&#8212;</span></h2>
+    <form class="feedback-form" action="" method="post" autocomplete="off">
+      <label class="form-field"
+        >Name
+        <input
+          class="form-input"
+          type="text"
+          name="user-name"
+          required
+          placeholder="Your name"
+        />
+      </label>
+      <label class="form-field"
+        >Email
+        <input
+          class="form-input"
+          type="email"
+          name="user-email"
+          required
+          placeholder="your.email@mail.com"
+        />
+      </label>
+      <label class="form-field"
+        >Message
+        <textarea
+          class="form-message"
+          name="user-comment"
+          rows="5"
+          placeholder="Tell me about your project..."
+        ></textarea>
+      </label>
+      <button class="btn form-btn" type="submit">
+        Send Message
+        <svg class="form-icon" width="30" height="30">
+          <use href="img/sprite.svg#message"></use>
+        </svg>
+      </button>
+    </form>
+  </div>
+</section>
