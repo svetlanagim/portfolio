@@ -28,6 +28,7 @@
   box-shadow: 0 0 15px var(--global-clr);
   background-color: var(--dark-clr);
   color: var(--light-text-clr);
+  -webkit-text-fill-color: var(--light-text-clr);
   caret-color: var(--light-text-clr);
   border-radius: 4px;
   font-size: 15px;
@@ -35,12 +36,6 @@
   transition: box-shadow 0.2s ease;
 }
 
-/* Цвет текста при вводе */
-.form-input,
-.form-message {
-  color: #fff;
-  caret-color: #fff;
-}
 
 /* Убираем стандартный фон автозаполнения Chrome */
 .form-input:-webkit-autofill,
@@ -51,7 +46,8 @@
 .form-message:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--light-text-clr);
   caret-color: var(--light-text-clr);
-  -webkit-box-shadow: 0 0 0 1000px var(--dark-clr) inset,
+  -webkit-box-shadow:
+    0 0 0 1000px var(--dark-clr) inset,
     0 0 15px var(--global-clr);
   transition: background-color 5000s ease-in-out 0s;
 }
