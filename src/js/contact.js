@@ -32,11 +32,9 @@ if (form) {
         throw new Error('Could not send the message');
       }
 
-      alert('Message sent successfully!');
       form.reset();
     } catch (error) {
       console.error('Form submission failed:', error);
-      alert('Could not send the message. Please try again.');
     } finally {
       button.disabled = false;
       button.textContent = originalText;
