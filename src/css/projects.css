@@ -47,6 +47,9 @@
 
 .projects-image-box {
   height: 250px;
+  width: 320px;
+  overflow: hidden;
+  /* если нужно скрыть выходящие за края части */
   border: 1px solid var(--global-clr);
   border-radius: 12px;
   overflow: hidden;
