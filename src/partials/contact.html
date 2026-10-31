@@ -1,7 +1,9 @@
 <section class="contact" id="contact">
   <div class="container">
     <h2 class="title anim-el" style="--delay: 0.2s">
-      <span>&#8212;</span> Contact <span>&#8212;</span>
+      <span>&#8212;</span>
+      <span data-i18n="contact">Contact</span>
+      <span>&#8212;</span>
     </h2>
     <div class="contact-box">
       <div class="social-icons contact-icons anim-el" style="--delay: 0s">
@@ -54,8 +56,8 @@
         method="post"
         autocomplete="on"
       >
-        <label class="form-field"
-          >Name
+        <label class="form-field">
+          <span data-i18n="nameLabel">Name</span>
           <input
             class="form-input"
             type="text"
@@ -63,10 +65,11 @@
             autocomplete="name"
             required
             placeholder="Your name"
+            data-i18n-placeholder="namePlaceholder"
           />
         </label>
-        <label class="form-field"
-          >Email
+        <label class="form-field">
+          <span data-i18n="emailLabel">Email</span>
           <input
             class="form-input"
             type="email"
@@ -76,17 +79,18 @@
             placeholder="your.email@mail.com"
           />
         </label>
-        <label class="form-field"
-          >Message
+        <label class="form-field">
+          <span data-i18n="messageLabel">Message</span>
           <textarea
             class="form-message"
             name="user-comment"
             rows="5"
             placeholder="Tell me about your project..."
+            data-i18n-placeholder="messagePlaceholder"
           ></textarea>
         </label>
         <button class="btn form-btn" type="submit">
-          Send Message
+          <span data-i18n="sendMessage">Send Message</span>
           <svg class="form-icon" width="30" height="30">
             <use href="img/sprite.svg#message"></use>
           </svg>

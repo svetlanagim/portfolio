@@ -77,11 +77,11 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 10rem;
+  /* width: 10rem; */
   height: 100%;
   font-size: 1.3rem;
   font-weight: 600;
-  padding: 0.6rem 0;
+  padding: 0.6rem;
   color: var(--dark-clr);
   background: var(--global-clr);
   border: 2px solid var(--global-clr);

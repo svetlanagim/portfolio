@@ -179,11 +179,20 @@
   .projects-card {
     width: calc((100% - 1 * 30px) / 2);
   }
+
+  .project-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 
 @media screen and (min-width: 1200px) {
   .projects-card {
     width: calc((100% - 2 * 30px) / 3);
+  }
+
+  .project-meta {
+    flex-direction: row;
   }
 }
