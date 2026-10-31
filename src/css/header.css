@@ -158,12 +158,16 @@ header {
   color: var(--light-text-clr);
   font-size: 1.2rem;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .lang-btn:hover,
 .lang-btn.active {
   color: var(--global-clr);
+}
+
+.lang-btn:hover {
+  transform: scale(1.1);
 }
 
 /* Запускаємо анімацію тільки за наявності класу .active у батьківського елемента */
