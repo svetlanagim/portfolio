@@ -22,6 +22,7 @@
 
 .form-input,
 .form-message {
+  color-scheme: dark;
   width: 100%;
   padding: 8px;
   border: 2px solid var(--global-clr);
@@ -37,20 +38,6 @@
 }
 
 
-/* Убираем стандартный фон автозаполнения Chrome */
-.form-input:-webkit-autofill,
-.form-input:-webkit-autofill:hover,
-.form-input:-webkit-autofill:focus,
-.form-message:-webkit-autofill,
-.form-message:-webkit-autofill:hover,
-.form-message:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--light-text-clr);
-  caret-color: var(--light-text-clr);
-  -webkit-box-shadow:
-    0 0 0 1000px var(--dark-clr) inset,
-    0 0 15px var(--global-clr);
-  transition: background-color 5000s ease-in-out 0s;
-}
 
 .form-input:focus,
 .form-message:focus {
@@ -82,4 +69,23 @@
   }
 
 
+}
+
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  color: var(--light-text-clr) !important;
+  -webkit-text-fill-color: var(--light-text-clr) !important;
+  caret-color: var(--light-text-clr) !important;
+
+  -webkit-box-shadow:
+    0 0 0 1000px var(--dark-clr) inset,
+    0 0 15px var(--global-clr) !important;
+
+  box-shadow:
+    0 0 0 1000px var(--dark-clr) inset,
+    0 0 15px var(--global-clr) !important;
+
+  transition: background-color 5000s ease-in-out 0s;
 }
