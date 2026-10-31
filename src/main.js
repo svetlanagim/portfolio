@@ -1,6 +1,5 @@
-// main.js
-import './js/animations';
-import './js/burgerMenu';
-import './js/skills';
-import './js/contact';
-import './js/footer';
+import './js/animations.js';
+import './js/burgerMenu.js';
+import './js/skills.js';
+import './js/contact.js';
+import './js/footer.js';

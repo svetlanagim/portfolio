@@ -1,26 +1,27 @@
 export function initAnimation() {
+  const elements = document.querySelectorAll('.anim-el');
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('show'));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
+          observer.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.15 /* Анимация начнется, когда элемент покажется на 15% */,
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px',
     }
   );
 
-  // Запускаем слежку за всеми элементами с классом .anim-el
-  document.querySelectorAll('.anim-el').forEach(el => observer.observe(el));
+  elements.forEach(el => observer.observe(el));
 }
 
-// Автозапуск анимаций при загрузке документа — удобно, если не нужен ручной вызов
-if (typeof window !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAnimation);
-  } else {
-    initAnimation();
-  }
-}
+initAnimation();

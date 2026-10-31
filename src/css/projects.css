@@ -6,6 +6,7 @@
   text-align: center;
   text-shadow: 0 0 10px var(--light-text-clr);
   margin-bottom: 20px;
+
 }
 
 .title span {
@@ -34,6 +35,7 @@
   color: var(--light-text-clr);
   position: relative;
   overflow: hidden;
+
 }
 
 
