@@ -3,50 +3,95 @@
     <h2 class="title anim-el" style="--delay: 0.2s">
       <span>&#8212;</span> Contact <span>&#8212;</span>
     </h2>
-    <form
-      class="feedback-form anim-el"
-      style="--delay: 0.4s"
-      action=""
-      method="post"
-      autocomplete="on"
-    >
-      <label class="form-field"
-        >Name
-        <input
-          class="form-input"
-          type="text"
-          name="user-name"
-          autocomplete="name"
-          required
-          placeholder="Your name"
-        />
-      </label>
-      <label class="form-field"
-        >Email
-        <input
-          class="form-input"
-          type="email"
-          name="user-email"
-          autocomplete="email"
-          required
-          placeholder="your.email@mail.com"
-        />
-      </label>
-      <label class="form-field"
-        >Message
-        <textarea
-          class="form-message"
-          name="user-comment"
-          rows="5"
-          placeholder="Tell me about your project..."
-        ></textarea>
-      </label>
-      <button class="btn form-btn" type="submit">
-        Send Message
-        <svg class="form-icon" width="30" height="30">
-          <use href="img/sprite.svg#message"></use>
-        </svg>
-      </button>
-    </form>
+    <div class="contact-box">
+      <div class="social-icons contact-icons anim-el" style="--delay: 0s">
+        <a
+          href="https://t.me/Svitlana_Vas111"
+          aria-label="telegram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" width="40" height="40">
+            <use href="img/sprite.svg#telegram"></use>
+          </svg>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/svitlana-gimish/"
+          aria-label="linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" width="40" height="40">
+            <use href="img/sprite.svg#linkedin"></use>
+          </svg>
+        </a>
+
+        <a
+          href="https://github.com/svetlanagim"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" width="40" height="40">
+            <use href="img/sprite.svg#github"></use>
+          </svg>
+        </a>
+        <a
+          href="mailto:svetagimish@hmail.com"
+          aria-label="Email"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" width="40" height="40">
+            <use href="img/sprite.svg#email"></use>
+          </svg>
+        </a>
+      </div>
+      <form
+        class="feedback-form anim-el"
+        style="--delay: 0.4s"
+        action=""
+        method="post"
+        autocomplete="on"
+      >
+        <label class="form-field"
+          >Name
+          <input
+            class="form-input"
+            type="text"
+            name="user-name"
+            autocomplete="name"
+            required
+            placeholder="Your name"
+          />
+        </label>
+        <label class="form-field"
+          >Email
+          <input
+            class="form-input"
+            type="email"
+            name="user-email"
+            autocomplete="email"
+            required
+            placeholder="your.email@mail.com"
+          />
+        </label>
+        <label class="form-field"
+          >Message
+          <textarea
+            class="form-message"
+            name="user-comment"
+            rows="5"
+            placeholder="Tell me about your project..."
+          ></textarea>
+        </label>
+        <button class="btn form-btn" type="submit">
+          Send Message
+          <svg class="form-icon" width="30" height="30">
+            <use href="img/sprite.svg#message"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
   </div>
 </section>

@@ -45,10 +45,7 @@
 }
 
 
-.hero-content h2 span {
-  color: var(--global-clr);
-  text-shadow: 0 0 15px;
-}
+.hero-content h2 span {}
 
 .hero-subtitle {
   font-family: "Jost", sans-serif;

@@ -11,6 +11,7 @@ export default async function handler(req, res) {
   // Секретні дані доступні лише серверу Vercel
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
+  const resendApiKey = process.env.RESEND_API_KEY;
 
   if (!token || !chatId) {
     console.error('Відсутні змінні середовища Telegram');
@@ -52,7 +53,7 @@ export default async function handler(req, res) {
     });
   }
 
-  // Проста перевірка формату електронної пошти
+  // Перевірка формату електронної пошти
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return res.status(400).json({
       success: false,
@@ -60,8 +61,7 @@ export default async function handler(req, res) {
     });
   }
 
-  // Надсилаємо звичайний текст, щоб дані користувача
-  // не інтерпретувалися як Markdown
+  // Формуємо повідомлення для Telegram
   const text = [
     '🔔 Заявка з сайту Портфоліо!',
     '',
@@ -71,6 +71,7 @@ export default async function handler(req, res) {
   ].join('\n');
 
   try {
+    // 1. Надсилаємо повідомлення в Telegram
     const telegramResponse = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
       {
@@ -95,6 +96,42 @@ export default async function handler(req, res) {
         success: false,
         message: 'Не вдалося надіслати повідомлення',
       });
+    }
+
+    // 2. Надсилаємо лист на email
+    if (resendApiKey) {
+      try {
+        const emailResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${resendApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: 'Portfolio <onboarding@resend.dev>',
+            to: ['svetagimish@gmail.com'],
+            reply_to: cleanEmail,
+            subject: `Нова заявка з портфоліо від ${cleanName}`,
+            text: [
+              'Нова заявка з сайту Портфоліо!',
+              '',
+              `Ім'я: ${cleanName}`,
+              `Email: ${cleanEmail}`,
+              `Повідомлення: ${cleanComment || 'Без коментаря'}`,
+            ].join('\n'),
+          }),
+          signal: AbortSignal.timeout(10000),
+        });
+
+        if (!emailResponse.ok) {
+          const emailError = await emailResponse.text();
+          console.error('Помилка відправки email:', emailError);
+        }
+      } catch (emailError) {
+        console.error('Помилка запиту до Resend:', emailError.message);
+      }
+    } else {
+      console.error('Відсутній RESEND_API_KEY');
     }
 
     return res.status(200).json({

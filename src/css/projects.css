@@ -35,7 +35,6 @@
   color: var(--light-text-clr);
   position: relative;
   overflow: hidden;
-
 }
 
 
@@ -69,6 +68,8 @@
 
 .projects-image {
   width: 100%;
+  height: auto;
+  object-fit: contain;
   transform-origin: 8px 80px;
   transform: rotate(5deg);
   transition: transform .3s ease-in-out;
@@ -154,10 +155,13 @@
   opacity: 0;
   display: flex;
   gap: 10px;
+
+  transform: translateY(100%);
 }
 
 .projects-card:hover .projects-links {
   opacity: 1;
+  transform: translateY(0%);
 }
 
 .projects-link {
