@@ -25,7 +25,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 20px;
+  padding: 8px 0;
 }
 
 /* Стартова анімація при завантаженні сторінки для логотипу та бургера */
@@ -94,10 +94,10 @@ header {
   justify-content: space-evenly;
   gap: 2.5rem;
   position: fixed;
-  top: 0;
+  top: 3px;
   right: -100%;
   width: 70vw;
-  height: 100vh;
+  height: 97vh;
   background: var(--dark-clr);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -165,12 +165,6 @@ header {
   color: var(--global-clr);
 }
 
-/* --- ОНОВЛЕНИЙ ЕФЕКТ STAGGER (Через атрибут animation) --- */
-.navbar-list-item {
-  /* opacity: 0; */
-  /* Спочатку пункти приховані, поки меню закрите */
-}
-
 /* Запускаємо анімацію тільки за наявності класу .active у батьківського елемента */
 .navbar-list.active .navbar-list-item,
 .navbar-list.active .cvbtn {
@@ -202,7 +196,6 @@ header {
   box-shadow: 0 0 10px var(--btn-clr);
   padding: 14px 28px;
   border-radius: 5px;
-  /* text-decoration: none; */
   color: var(--text-clr);
   transition: 0.2s;
   opacity: 0;
@@ -233,9 +226,6 @@ header {
     -webkit-backdrop-filter: none;
     padding: 0;
     gap: 1.5rem;
-    /* Десктопна анімація з файлу animations.css при завантаженні сторінки */
-    /* opacity: 0; animation: slideRight 1.5s ease-in-out forwards; animation-delay: calc(0.2s * var(--i)); */
-    /* opacity: 1; animation: none; */
   }
 
   /* СКИДАННЯ: Повністю вимикаємо мобільний stagger-ефект на ПК */

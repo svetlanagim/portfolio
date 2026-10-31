@@ -1,3 +1,4 @@
+import './js/base.js';
 import './js/animations.js';
 import './js/burgerMenu.js';
 import './js/skills.js';

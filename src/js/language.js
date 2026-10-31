@@ -93,7 +93,7 @@ function setLanguage(lang) {
   });
 }
 
-const savedLanguage = localStorage.getItem('language') || 'en';
+const savedLanguage = localStorage.getItem('language') || 'uk';
 
 setLanguage(savedLanguage);
 
