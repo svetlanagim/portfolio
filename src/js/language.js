@@ -26,7 +26,11 @@ const translations = {
     emailLabel: 'Email',
     messageLabel: 'Message',
     messagePlaceholder: 'Tell me about your project...',
+
     sendMessage: 'Send Message',
+    sending: 'Sending...',
+    messageSent: 'Message sent successfully!',
+    messageError: 'Something went wrong. Please try again.',
 
     footerText: "Let's create something together.",
     rightsReserved: 'All rights reserved.',
@@ -60,13 +64,18 @@ const translations = {
     emailLabel: 'Електронна пошта',
     messageLabel: 'Повідомлення',
     messagePlaceholder: 'Розкажіть про свій проєкт...',
+
     sendMessage: 'Надіслати повідомлення',
+    sending: 'Надсилання...',
+    messageSent: 'Повідомлення успішно надіслано!',
+    messageError: 'Сталася помилка. Спробуйте ще раз.',
 
     footerText: 'Створімо щось разом.',
     rightsReserved: 'Усі права захищено.',
     backToTop: 'Нагору ↑',
   },
 };
+window.translations = translations;
 
 function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(element => {

@@ -5,9 +5,15 @@ if (form) {
     e.preventDefault();
 
     const button = form.querySelector('.form-btn');
+    const status = form.querySelector('.form-status');
+
     if (!button || button.disabled) return;
 
-    const originalText = button.textContent;
+    // Отримуємо поточну мову сайту
+    const lang = localStorage.getItem('language') || 'en';
+    const text = translations[lang] || window.translations.en;
+
+    const originalText = button.innerHTML;
     const formData = new FormData(form);
 
     const data = {
@@ -16,8 +22,20 @@ if (form) {
       comment: String(formData.get('user-comment') || '').trim(),
     };
 
+    // Блокуємо кнопку на час надсилання
     button.disabled = true;
-    button.textContent = 'Sending...';
+
+    const buttonText = button.querySelector('[data-i18n="sendMessage"]');
+
+    if (buttonText) {
+      buttonText.textContent = text.sending;
+    }
+
+    // Очищаємо попереднє повідомлення
+    if (status) {
+      status.textContent = '';
+      status.className = 'form-status';
+    }
 
     try {
       const response = await fetch('/api/send-message', {
@@ -32,12 +50,26 @@ if (form) {
         throw new Error('Could not send the message');
       }
 
+      // Очищаємо форму після успішного надсилання
       form.reset();
+
+      // Показуємо повідомлення про успіх
+      if (status) {
+        status.textContent = text.messageSent;
+        status.className = 'form-status success';
+      }
     } catch (error) {
-      console.error('Form submission failed:', error);
+      console.error('Помилка надсилання повідомлення:', error);
+
+      // Показуємо повідомлення про помилку
+      if (status) {
+        status.textContent = text.messageError;
+        status.className = 'form-status error';
+      }
     } finally {
+      // Повертаємо кнопку до початкового стану
       button.disabled = false;
-      button.textContent = originalText;
+      button.innerHTML = originalText;
     }
   });
 }
