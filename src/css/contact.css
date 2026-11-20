@@ -74,6 +74,33 @@
   transition: fill 0.2s ease;
 }
 
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 5px 0 15px;
+  color: var(--light-text-clr);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form-consent input {
+  flex-shrink: 0;
+  margin-top: 4px;
+  accent-color: var(--global-clr);
+  cursor: pointer;
+}
+
+.form-consent a {
+  color: var(--global-clr);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-consent a:hover {
+  opacity: 0.8;
+}
+
 @media screen and (min-width: 1200px) {
   .feedback-form {
     max-width: 700px;

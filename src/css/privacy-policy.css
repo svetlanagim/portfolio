@@ -1,0 +1,87 @@
+.privacy {
+  min-height: 100vh;
+  padding: 120px 0 60px;
+}
+
+.privacy-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.privacy-content {
+  padding: 35px;
+  background: var(--second-dark-clr);
+  border-radius: 16px;
+}
+
+.privacy-content h2 {
+  margin: 30px 0 12px;
+  color: var(--global-clr);
+  font-size: 22px;
+}
+
+.privacy-content h2:first-child {
+  margin-top: 0;
+}
+
+.privacy-content p,
+.privacy-content li {
+  color: var(--light-text-clr);
+  line-height: 1.8;
+}
+
+.privacy-content ul {
+  padding-left: 22px;
+}
+
+.privacy-content a {
+  color: var(--global-clr);
+  text-decoration: underline;
+}
+
+.privacy-back {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--global-clr);
+}
+
+.privacy-date {
+  margin-bottom: 25px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.privacy-lang {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.privacy-lang button {
+  padding: 8px 14px;
+  color: var(--text-clr);
+  background: var(--second-dark-clr);
+  border: 1px solid var(--global-clr);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.privacy-lang button.active {
+  color: var(--dark-clr);
+  background: var(--global-clr);
+}
+
+@media (max-width: 576px) {
+  .privacy {
+    padding: 100px 15px 40px;
+  }
+
+  .privacy-content {
+    padding: 22px;
+  }
+
+  .privacy-content h2 {
+    font-size: 19px;
+  }
+}

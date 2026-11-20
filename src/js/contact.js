@@ -20,8 +20,8 @@ if (form) {
       name: String(formData.get('user-name') || '').trim(),
       email: String(formData.get('user-email') || '').trim(),
       comment: String(formData.get('user-comment') || '').trim(),
+      consent: formData.get('privacy-consent') === 'on',
     };
-
     // Блокуємо кнопку на час надсилання
     button.disabled = true;
 

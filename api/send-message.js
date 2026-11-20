@@ -23,7 +23,16 @@ export default async function handler(req, res) {
   }
 
   // Перевіряємо поля форми
-  const { name, email, comment } = req.body || {};
+  // Перевіряємо згоду на обробку персональних даних
+  const { name, email, comment, consent } = req.body || {};
+
+  if (consent !== true) {
+    return res.status(400).json({
+      success: false,
+      message:
+        'Consent to the processing of personal data is required. / Необхідно надати згоду на обробку персональних даних.',
+    });
+  }
 
   if (
     typeof name !== 'string' ||
