@@ -76,7 +76,7 @@ const privacyTranslations = {
   },
 };
 
-const langButtons = document.querySelectorAll('.privacy-lang button');
+const langButtons = document.querySelectorAll('.lang-btn');
 
 function setPrivacyLanguage(lang) {
   const translations = privacyTranslations[lang];

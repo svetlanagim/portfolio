@@ -27,7 +27,7 @@ const translations = {
     messageLabel: 'Message',
     messagePlaceholder: 'Tell me about your project...',
     privacyConsent:
-      'I agree to the processing of my personal data in accordance with the <a href="./privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.',
+      'I agree to the processing of my personal data in accordance with the <a href="./privacy-policy.html">Privacy Policy</a>.',
 
     sendMessage: 'Send Message',
     sending: 'Sending...',
@@ -67,7 +67,7 @@ const translations = {
     messageLabel: 'Повідомлення',
     messagePlaceholder: 'Розкажіть про свій проєкт...',
     privacyConsent:
-      'Я погоджуюся на обробку моїх персональних даних відповідно до <a href="./privacy-policy.html" target="_blank" rel="noopener noreferrer">Політики конфіденційності</a>.',
+      'Я погоджуюся на обробку моїх персональних даних відповідно до <a href="./privacy-policy.html">Політики конфіденційності</a>.',
 
     sendMessage: 'Надіслати повідомлення',
     sending: 'Надсилання...',

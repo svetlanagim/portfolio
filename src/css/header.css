@@ -143,27 +143,65 @@ header {
 }
 
 .language-switch {
+  position: relative;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  flex-direction: column;
   gap: 8px;
-  margin-left: 15px;
+  margin-left: auto;
+  margin-right: 15px;
+  /* padding-bottom: 8px; */
+  /* margin-bottom: -8px; */
   color: var(--light-text-clr);
+}
+
+.language-switch::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
 }
 
 .lang-btn {
-  padding: 5px;
-  background: transparent;
-  border: 1px solid;
-  border-radius: 50%;
-  color: var(--light-text-clr);
-  font-size: 1.2rem;
+  padding: 8px 14px;
+  color: var(--text-clr);
+  background: var(--second-dark-clr);
+  border: 1px solid var(--global-clr);
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+/* Ховаємо неактивну кнопку, не змінюючи розміри блоку */
+.lang-btn:not(.active) {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Показуємо другу кнопку при наведенні або фокусі */
+.language-switch:hover .lang-btn:not(.active),
+.language-switch:focus-within .lang-btn:not(.active) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 
 .lang-btn:hover,
 .lang-btn.active {
-  color: var(--global-clr);
+  color: var(--dark-clr);
+  background: var(--global-clr);
+}
+
+.lang-btn:not(.active):hover {
+  transform: translateX(-50%) scale(1.1);
 }
 
 .lang-btn:hover {

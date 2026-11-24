@@ -3,9 +3,22 @@
   padding: 120px 0 60px;
 }
 
-.privacy-container {
-  max-width: 900px;
-  margin: 0 auto;
+.privacy-nav {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.privacy-back {
+  display: flex;
+  align-items: center;
+  color: var(--global-clr);
+}
+
+.privacy-lang {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .privacy-content {
@@ -39,11 +52,7 @@
   text-decoration: underline;
 }
 
-.privacy-back {
-  display: inline-block;
-  margin-bottom: 25px;
-  color: var(--global-clr);
-}
+
 
 .privacy-date {
   margin-bottom: 25px;
@@ -51,13 +60,9 @@
   opacity: 0.7;
 }
 
-.privacy-lang {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-bottom: 20px;
-}
 
+
+/*
 .privacy-lang button {
   padding: 8px 14px;
   color: var(--text-clr);
@@ -70,9 +75,9 @@
 .privacy-lang button.active {
   color: var(--dark-clr);
   background: var(--global-clr);
-}
+} */
 
-@media (max-width: 576px) {
+@media screen and (min-width: 768px) {
   .privacy {
     padding: 100px 15px 40px;
   }
